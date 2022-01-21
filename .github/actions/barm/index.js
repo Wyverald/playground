@@ -8,7 +8,7 @@ async function run() {
   const payload = github.context.payload;
   const command = payload.comment.body.slice(6);  // "!barm "
 
-  await octokit.issues.createComment({
+  await octokit.rest. issues.createComment({
     owner: payload.repository.owner.login,
     repo: payload.repository.name,
     issue_number: payload.issue.number,
