@@ -10,6 +10,8 @@ jobs:
       issues: write
       pull-requests: write
     steps:
-      - name: barm
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Run barm
         uses: ./.github/actions/barm
 
