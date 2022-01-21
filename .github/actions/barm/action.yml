@@ -1,0 +1,11 @@
+name: 'Bazel Assistant Release Manager'
+description: 'Does what it says on the tin.'
+inputs:
+  token:
+    description: 'The GitHub token'
+    required: false
+    default: ${{ github.token }}
+runs:
+  using: 'node16'
+  main: 'index.js'
+
