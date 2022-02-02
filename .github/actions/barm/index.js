@@ -32,7 +32,7 @@ async function run() {
       octokit.rest.issues.listMilestones,
       {owner, repo}
     )) {
-core.info(`found milestone: [${milestone.title}]`);
+core.info(`found milestone: [${JSON.stringify(milestone)}]`);
       if (milestone.title === `${branch} release blockers`) {
         milestoneNumber = milestone.number;
         break;
