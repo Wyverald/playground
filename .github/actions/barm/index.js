@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 
-const RELEASE_BLOCKER = "potential release blocker";
+const FLAGGED_LABEL = "potential release blocker";
 
 async function run() {
   const token = core.getInput("token");
@@ -19,7 +19,7 @@ async function run() {
       await octokit.rest.repos.checkCollaborator({
         owner,
         repo,
-        username: payload.comment.user.login,
+        username: 'meteorcloudy',
       });
     } catch (err) {
       throw `user ${payload.comment.user.login} has no collaborator access in repo ${owner}/${repo}`;
