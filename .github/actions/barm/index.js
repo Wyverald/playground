@@ -19,7 +19,7 @@ async function run() {
       await octokit.rest.repos.checkCollaborator({
         owner,
         repo,
-        username: 'meteorcloudy',
+        username: payload.comment.user.login,
       });
     } catch (err) {
       throw `user ${payload.comment.user.login} has no collaborator access in repo ${owner}/${repo}`;
@@ -61,11 +61,11 @@ async function run() {
       });
     }
   } else if (command === "flag") {
-    await octokit.rest.issues.addLabel({
+    await octokit.rest.issues.addLabels({
       owner,
       repo,
       issue_number: payload.issue.number,
-      name: FLAGGED_LABEL,
+      labels: [FLAGGED_LABEL],
     });
   }
 
