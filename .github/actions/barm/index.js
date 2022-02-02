@@ -27,13 +27,13 @@ async function run() {
 
     // Find the milestone corresponding to this branch
     const branch = command.slice(5);
-    var milestoneNumber = null;
-    for await (const milestone of octokit.paginate.iterator(
+    let milestoneNumber = null;
+    for await (const { data: milestones } of octokit.paginate.iterator(
       octokit.rest.issues.listMilestones,
       {owner, repo}
     )) {
-core.info(`found milestone: [${JSON.stringify(milestone)}]`);
-      if (milestone.title === `${branch} release blockers`) {
+      let milestone = milestones.find(m => m.title === `${branch} release blockers`);
+      if (milestone) {
         milestoneNumber = milestone.number;
         break;
       }
