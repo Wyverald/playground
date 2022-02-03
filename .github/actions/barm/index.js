@@ -22,11 +22,17 @@ async function run() {
         username: payload.comment.user.login,
       });
     } catch (err) {
+      await octokit.rest.reactions.createForIssueComment({
+        owner,
+        repo,
+        comment_id: payload.comment.id,
+        content: '-1',
+      });
       throw `user ${payload.comment.user.login} has no collaborator access in repo ${owner}/${repo}`;
     }
 
     // Find the milestone corresponding to this branch
-    const branch = command.slice(5);
+    const branch = command.slice(5).trim();
     let milestoneNumber = null;
     for await (const { data: milestones } of octokit.paginate.iterator(
       octokit.rest.issues.listMilestones,
@@ -39,6 +45,12 @@ async function run() {
       }
     }
     if (milestoneNumber === null) {
+      await octokit.rest.reactions.createForIssueComment({
+        owner,
+        repo,
+        comment_id: payload.comment.id,
+        content: 'confused',
+      });
       throw `no release blocker milestone found for ${branch}`;
     }
 
@@ -69,9 +81,12 @@ async function run() {
     });
   }
 
+  await octokit.rest.reactions.createForIssueComment({
+    owner,
+    repo,
+    comment_id: payload.comment.id,
+    content: '+1',
+  });
 }
 
-run().then(
-  result => { core.info(result); },
-  err => { core.setFailed(err); }
-);
+run().catch(err => { core.setFailed(err); });
