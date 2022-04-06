@@ -3,20 +3,20 @@ description: File a bug report
 body:
   - type: markdown
     attributes:
-      value: |
+      value: >
         *Attention:* if this is a _question_ about how to build / test / query / deploy using Bazel, or a _discussion starter_,
         send it to bazel-discuss@googlegroups.com or discuss on [Bazel Slack](https://slack.bazel.build/) instead!
   - type: input
     id: desc
     attributes:
       label: Description
-      description: |
+      description: >
         Brief description of the bug
   - type: textarea
     id: repro
     attributes:
       label: Reproduction steps
-      description: |
+      description: >
         What's the simplest, easiest way to reproduce this bug? Please provide a minimal example if possible.
     validations:
       required: true
@@ -24,32 +24,32 @@ body:
     id: os
     attributes:
       label: Operation system
-      description: |
+      description: >
         Which operating system are you running Bazel on?
   - type: input
     id: version
     attributes:
       label: Bazel version
-      description: |
+      description: >
         What is the output of `bazel info release`?
   - type: textarea
     id: version-follow-up
     attributes:
       label: Bazel version (cont'd)
-      description: |
+      description: >
         If `bazel info release` returns `development version` or `(@non-git)`, tell us how you built Bazel.
   - type: textarea
     id: source
     attributes:
       label: Source information
       render: text
-      description: |
+      description: >
         What's the output of `git remote get-url origin ; git rev-parse master ; git rev-parse HEAD` ?
   - type: textarea
     id: relevant-info
     attributes:
       label: Have you found anything relevant by searching the web?
-      description: |
+      description: >
         Places to look:
             - StackOverflow: http://stackoverflow.com/questions/tagged/bazel
             - GitHub issues: https://github.com/bazelbuild/bazel/issues
