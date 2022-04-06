@@ -50,9 +50,9 @@ body:
       description: >
         Places to look:
         
-            * StackOverflow: http://stackoverflow.com/questions/tagged/bazel
-            * GitHub issues: https://github.com/bazelbuild/bazel/issues
-            * email threads on https://groups.google.com/forum/#!forum/bazel-discuss
+         * StackOverflow: http://stackoverflow.com/questions/tagged/bazel
+         * GitHub issues: https://github.com/bazelbuild/bazel/issues
+         * email threads on https://groups.google.com/forum/#!forum/bazel-discuss
   - type: textarea
     id: extras
     attributes:
