@@ -1,5 +1,7 @@
 contact_links:
   - name: Bazel Slack
     url: https://slack.bazel.build/
+    about: stuff
   - name: bazel-discuss@googlegroups.com mailing list
     url: https://groups.google.com/g/bazel-discuss/
+    about: stuff2
