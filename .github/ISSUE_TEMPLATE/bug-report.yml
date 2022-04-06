@@ -6,7 +6,7 @@ body:
       value: >
         **Attention:** if this is a _question_ about how to build / test / query / deploy using Bazel, or a _discussion starter_,
         send it to bazel-discuss@googlegroups.com or discuss on [Bazel Slack](https://slack.bazel.build/) instead!
-  - type: input
+  - type: textarea
     id: desc
     attributes:
       label: Description
@@ -18,8 +18,6 @@ body:
       label: Reproduction steps
       description: >
         What's the simplest, easiest way to reproduce this bug? Please provide a minimal example if possible.
-    validations:
-      required: true
   - type: input
     id: os
     attributes:
@@ -51,6 +49,7 @@ body:
       label: Have you found anything relevant by searching the web?
       description: >
         Places to look:
+        
             * StackOverflow: http://stackoverflow.com/questions/tagged/bazel
             * GitHub issues: https://github.com/bazelbuild/bazel/issues
             * email threads on https://groups.google.com/forum/#!forum/bazel-discuss
