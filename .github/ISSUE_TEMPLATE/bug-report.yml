@@ -9,40 +9,34 @@ body:
   - type: textarea
     id: desc
     attributes:
-      label: Description
-      description: >
-        Brief description of the bug
+      label: >
+        Description of the bug:
   - type: textarea
     id: repro
     attributes:
-      label: Reproduction steps
-      description: >
+      label: >
         What's the simplest, easiest way to reproduce this bug? Please provide a minimal example if possible.
   - type: input
     id: os
     attributes:
-      label: Operation system
-      description: >
+      label: >
         Which operating system are you running Bazel on?
   - type: input
     id: version
     attributes:
-      label: Bazel version
-      description: >
+      label: >
         What is the output of `bazel info release`?
   - type: textarea
     id: version-follow-up
     attributes:
-      label: Bazel version (cont'd)
-      description: >
+      label: >
         If `bazel info release` returns `development version` or `(@non-git)`, tell us how you built Bazel.
   - type: textarea
     id: source
     attributes:
-      label: Source information
-      render: text
-      description: >
+      label: >
         What's the output of `git remote get-url origin ; git rev-parse master ; git rev-parse HEAD` ?
+      render: text
   - type: textarea
     id: relevant-info
     attributes:
@@ -56,4 +50,4 @@ body:
   - type: textarea
     id: extras
     attributes:
-      label: Other information & logs
+      label: Any other information, logs, or outputs that you want to share?
